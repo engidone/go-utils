@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"runtime"
+	"strings"
+
 	"github.com/engidone/utils/log"
 	"gopkg.in/yaml.v3"
 )
@@ -50,13 +51,12 @@ func findFileAbsolute(basePath, fileName string) (string, error) {
 	return result, nil
 }
 
-func NewConfigPaths(backNumLevels int) Paths {
-	_, b, _, _ := runtime.Caller(0)
-	args := append([]string{filepath.Dir(b)}, backLevels(backNumLevels)...)
-	rootPath := filepath.Join(args...)
+func NewConfigPaths(path string) Paths {
+	wd, _ := os.Getwd()
+	configPaths := strings.Split(path, "/")
 	return Paths{
-		Config: filepath.Join(rootPath, "cmd", "config"),
-		Root:   rootPath,
+		Config: filepath.Join(wd, filepath.Join(configPaths...)),
+		Root:   wd,
 	}
 }
 
