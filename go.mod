@@ -1,4 +1,4 @@
-module github.com/engidone/utils
+module github.com/engidone/go-utils
 
 go 1.25.1
 
