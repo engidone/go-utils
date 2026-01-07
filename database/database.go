@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/engidone/utils/common"
-	"github.com/engidone/utils/log"
+	"github.com/engidone/go-utils/common"
+	"github.com/engidone/go-utils/log"
 
 	_ "github.com/lib/pq"
 )

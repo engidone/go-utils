@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/engidone/utils/clog"
+	"github.com/engidone/go-utils/clog"
 	"go.uber.org/zap"
 )
 

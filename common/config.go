@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/engidone/utils/log"
+	"github.com/engidone/go-utils/log"
 	"gopkg.in/yaml.v3"
 )
 
