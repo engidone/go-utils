@@ -10,7 +10,7 @@ func BuildDSN(database DatabaseConfig) string {
 	dsn = strings.ReplaceAll(dsn, "{password}", database.Password)
 	dsn = strings.ReplaceAll(dsn, "{host}", database.Host)
 	dsn = strings.ReplaceAll(dsn, "{port}", database.Port)
-	dsn = strings.ReplaceAll(dsn, "{db_name}", database.Password)
+	dsn = strings.ReplaceAll(dsn, "{db_name}", database.DBName)
 	dsn = strings.ReplaceAll(dsn, "{ssl_mode}", database.SSLMode)
 	return dsn
 }

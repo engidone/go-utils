@@ -27,7 +27,7 @@ type DatabaseConfig struct {
 func Open() (*sql.DB, error) {
 	common.LoadEnvFile()
 	appConfig, err := common.LoadFile[struct {
-		Logging string `yaml:"Logging"`
+		Logging  string         `yaml:"Logging"`
 		Database DatabaseConfig `yaml:"database"`
 	}](common.GetConfigPath("app.yaml"))
 
@@ -39,6 +39,7 @@ func Open() (*sql.DB, error) {
 
 	database := appConfig.Database
 	dsn := BuildDSN(database)
+	log.Info(dsn)
 
 	db, err := sql.Open(database.Engine, dsn)
 	if err != nil {
