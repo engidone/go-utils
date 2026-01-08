@@ -3,8 +3,6 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"os"
-
 	"github.com/engidone/go-utils/common"
 	"github.com/engidone/go-utils/log"
 
@@ -30,8 +28,6 @@ func Open() (*sql.DB, error) {
 		Logging  string         `yaml:"Logging"`
 		Database DatabaseConfig `yaml:"database"`
 	}](common.GetConfigPath("app.yaml"))
-
-	os.Setenv("LOGGING", appConfig.Logging)
 
 	if err != nil {
 		log.Fatalf("Error loading config: %v", err.Error())
